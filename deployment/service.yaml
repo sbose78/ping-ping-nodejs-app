@@ -1,18 +1,17 @@
 apiVersion: serving.knative.dev/v1alpha1
 kind: Service
 metadata:
-  name: <APP_NAME>
-  namespace: <NAMESPACE>
+  name: serverless-example-nodejs
 spec:
   template:
     spec:
       containers:
-        - image: <DOCKER_REPO>
+        - image: quay.io/kscout/serverless-example-nodejs
           env:
             - name: APP_PORT
-              value: "5050"
+              value: "3000"
           ports:
-            - containerPort: 5050
+            - containerPort: 3000
           readinessProbe:
             httpGet:
-              path: /
+              path: /health

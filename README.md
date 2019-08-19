@@ -1,44 +1,30 @@
-# Kscout Hack Template
+# Hackathon Template
+Easy instructions for a Hackathon application.
 
+# Table Of Contents
+- [Overview](#overview)
 
-## Setup
-Check `secrets.yaml` file in `deploy/templates` for reference
+# Overview
+This is an example NodeJS serverless app.
 
-_All the secrets should be in `base64` format in the `secrets.yaml`_ \
-_Your secrets file should always be gitignored and dockerignored to avoid leaking secrets_
+To get started:
 
-## RUN
-
-### Build the docker image 
-`make docker-build`
-
-### Run the docker image on local machine
-`make docker-run` \
-_The default entrypoint while running the docker image on local machine is `/bin/sh`_
-
-
-### Upload the docker image to dockerhub
-`make docker-push`
-
-### Build and Upload the docker image to repository 
-`make docker`
-
-### Deploy the image to kubernetes/knative cluster
-*Make sure you have knative installed on the cluster* 
-
-#### Deploy the image to `Staging`
-`make staging` \
-*It creates a docker image from your current working directory and uploads it to docker hub before depolying the image* \
-
-**If you are looking to deploy to staging without building and pushing docker image, use** \
-`make staging-rollout`
-
-#### Deploy the image to `Production`
-`make production` \
-*Takes the latest `production` image from docker hub to deploy* \
-Make sure you have `github webhooks` configured on `dockerhub`
-
-
-
-## Misc.
-* To change the default namespace and docker repository see `Makefile`
+0. Download the OpenShift 4 CLI from https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.1.9/
+0. Download Podman from https://podman.io
+1. Fork this repository
+2. Rename the repository
+3. Change the `APP` variable in `Makefile` to be the new name of the repository
+4. Make a [Quay.io](https://quay.io) account
+5. Change the `CONTAINER_USER` variable value in `Makefile` to be your username
+6. Make a repository with the same name on Quay.io, this should match the GitHub 
+   repository name
+7. Add custom HTTP routes to `index.js`.
+8. Run locally:
+   ```
+   node index.js
+   ```
+9. Ask an organizer for credentials to the Hackathon's Kubernetes cluster
+10. Deploy:
+   ```
+   make deploy
+   ```
