@@ -18,13 +18,17 @@ To get started:
 5. Change the `CONTAINER_USER` variable value in `Makefile` to be your username
 6. Make a repository with the same name on Quay.io, this should match the GitHub 
    repository name
-7. Add custom HTTP routes to `index.js`.
-8. Run locally:
+7. Install NodeJS dependencies:
+   ```
+   yarn install
+   ```
+8. Add custom HTTP routes to `index.js`.
+9. Run locally:
    ```
    node index.js
    ```
-9. Ask an organizer for credentials to the Hackathon's Kubernetes cluster
-10. Deploy:
+10. Ask an organizer for credentials to the Hackathon's Kubernetes cluster
+11. Deploy:
    ```
    make deploy
    ```
