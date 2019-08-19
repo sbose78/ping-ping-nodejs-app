@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-        - image: quay.io/kscout/serverless-example-nodejs
+        - image: quay.io/QUAY_USERNAME/QUAY_REPO_NAME:latest
           env:
             - name: APP_PORT
               value: "3000"

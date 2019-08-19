@@ -27,8 +27,11 @@ To get started:
    ```
    make run
    ```
-13. Ask an organizer for credentials to the Hackathon's Kubernetes cluster
-14. Deploy:
+13. Edit the [`deployment/service.yaml`](deployment/service.yaml) file. Change 
+	the `metadata.name` and `spec.template.spec.containers.0.image` fields to 
+	your own values.
+14. Ask an organizer for credentials to the Hackathon's Kubernetes cluster
+15. Deploy:
    ```
    make deploy
    ```
