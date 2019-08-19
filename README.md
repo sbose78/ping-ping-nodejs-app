@@ -13,9 +13,9 @@ To get started:
 0. Download Podman from https://podman.io
 1. Fork this repository
 2. Rename the repository
-3. Change the `APP` variable in `Makefile` to be the new name of the repository
+3. Change the `APP` variable in [`Makefile`](Makefile) to be the new name of the repository
 4. Make a [Quay.io](https://quay.io) account
-5. Change the `CONTAINER_USER` variable value in `Makefile` to be your username
+5. Change the `CONTAINER_USER` variable value in [`Makefile`](Makefile) to be your username
 6. Make a repository with the same name on Quay.io, this should match the GitHub 
    repository name
 7. Install NodeJS dependencies:
