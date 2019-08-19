@@ -14,10 +14,12 @@ CONTAINER_CLI ?= podman
 CONTAINER_VERSION ?= latest
 CONTAINER_REPO ?= quay.io/${CONTAINER_USER}/${APP}:${CONTAINER_VERSION}
 
+NAMESPACE ?= ${CONTAINER_USER}-${APP}
+
 # Deploy app to cluster
 deploy: container
-	${OC_CLI} project ${APP}
-	${OC_CLI} apply -n ${APP} -f deployment/service.yaml
+	${OC_CLI} project ${NAMESPACE} || ${OC_CLI} new-project ${NAMESPACE}
+	${OC_CLI} apply -n ${NAMESPACE} -f deployment/service.yaml
 
 # Build and push container
 container:
