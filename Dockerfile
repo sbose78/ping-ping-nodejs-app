@@ -7,6 +7,7 @@ COPY package.json .
 RUN npm install
 
 COPY run.sh .
+RUN chmod +x run.sh
 COPY index.js .
 
 CMD /app/run.sh
