@@ -17,4 +17,5 @@ CONTAINER_REPO ?= quay.io/${CONTAINER_USER}/${APP}:${CONTAINER_VERSION}
 deploy:
 	${CONTAINER_CLI} build -t ${CONTAINER_REPO} .
 	${CONTAINER_CLI} push ${CONTAINER_REPO}
-	${OC_CLI} apply -f deployment/service.yaml
+	${OC_CLI} project ${APP}
+	${OC_CLI} apply -n ${APP} -f deployment/service.yaml
