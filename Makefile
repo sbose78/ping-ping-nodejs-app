@@ -1,4 +1,4 @@
-.PHONY: deploy container
+.PHONY: deploy container run
 
 # !!!CHANGE THESE VALUES!!!
 # APP = Name of your Quay.io and GitHub repository
@@ -14,8 +14,17 @@ CONTAINER_CLI ?= podman
 CONTAINER_VERSION ?= latest
 CONTAINER_REPO ?= quay.io/${CONTAINER_USER}/${APP}:${CONTAINER_VERSION}
 
-deploy:
-	${CONTAINER_CLI} build -t ${CONTAINER_REPO} .
-	${CONTAINER_CLI} push ${CONTAINER_REPO}
+# Deploy app to cluster
+deploy: container
 	${OC_CLI} project ${APP}
 	${OC_CLI} apply -n ${APP} -f deployment/service.yaml
+
+# Build and push container
+container:
+	${CONTAINER_CLI} build -t ${CONTAINER_REPO} .
+	${CONTAINER_CLI} push ${CONTAINER_REPO}
+
+# Run app locally
+run:
+	yarn install
+	./index.js

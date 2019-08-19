@@ -22,17 +22,13 @@ To get started:
    repository name
 10. Edit the `name`, `description`, `repository`, `author`, and `homepage` 
 	fields in the [`package.json`](package.json)
-11. Install NodeJS dependencies:
+11. Add custom HTTP routes to `index.js`.
+12. Run locally:
    ```
-   yarn install
+   make run
    ```
-12. Add custom HTTP routes to `index.js`.
-13. Run locally:
-   ```
-   node index.js
-   ```
-14. Ask an organizer for credentials to the Hackathon's Kubernetes cluster
-15. Deploy:
+13. Ask an organizer for credentials to the Hackathon's Kubernetes cluster
+14. Deploy:
    ```
    make deploy
    ```
